@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="firebase.js"></script>
+  <script src="script.js"></script>
+  <title>Tailwind + Firebase Boilerplate</title>
+</head>
+
+<body class="bg-gray-100">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow p-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-blue-600">MyApp</h1>
+    <ul class="flex gap-6">
+      <li><a href="#" class="text-gray-700 hover:text-blue-600">Home</a></li>
+      <li><a href="#" class="text-gray-700 hover:text-blue-600">Services</a></li>
+      <li><a href="#" class="text-gray-700 hover:text-blue-600">About</a></li>
+    </ul>
+    <button onclick="logOut()" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Logout</button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="text-center py-20 bg-blue-50">
+    <h1 class="text-4xl font-bold text-blue-700">Welcome to MyApp</h1>
+    <p class="mt-4 text-gray-700 max-w-xl mx-auto">This is a boilerplate template built with TailwindCSS, Firebase, and JavaScript.</p>
+  </section>
+
+  <!-- Section 2 -->
+  <section class="py-16 px-6 grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    <div class="bg-white p-6 rounded-xl shadow">
+      <h2 class="font-bold text-xl mb-2">Feature 1</h2>
+      <p class="text-gray-600">Lorem ipsum dolor sit amet.</p>
+    </div>
+    <div class="bg-white p-6 rounded-xl shadow">
+      <h2 class="font-bold text-xl mb-2">Feature 2</h2>
+      <p class="text-gray-600">Lorem ipsum dolor sit amet.</p>
+    </div>
+    <div class="bg-white p-6 rounded-xl shadow">
+      <h2 class="font-bold text-xl mb-2">Feature 3</h2>
+      <p class="text-gray-600">Lorem ipsum dolor sit amet.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white text-center py-4">
+    <p>© 2025 MyApp — All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
