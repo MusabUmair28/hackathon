@@ -1,35 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Login — Mini Social</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-  <script src="firebase.js"></script>
-  <script src="script.js"></script>
-  <title>Login</title>
+  <link rel="stylesheet" href="css/input.csss">
 </head>
-
-<body class="bg-gray-100 flex items-center justify-center h-screen">
-
-  <div class="bg-white p-8 shadow-xl rounded-xl w-80">
-    <h1 class="text-2xl font-bold text-center mb-6">Login</h1>
-
-    <input id="logEmail" type="email" placeholder="Email"
-      class="w-full border p-2 rounded mb-4" />
-
-    <input id="logPass" type="password" placeholder="Password"
-      class="w-full border p-2 rounded mb-4" />
-
-    <button onclick="loginUser()" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
-      Login
-    </button>
-
-    <p class="text-center mt-4 text-sm">
-      Don’t have an account? <a href="register.html" class="text-blue-600">Register</a>
-    </p>
+<body class="bg-gradient-to-b from-slate-50 to-sky-50 min-h-screen flex items-center justify-center p-4">
+  <div class="w-full max-w-md">
+    <div class="bg-white/60 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-white/30">
+      <h2 class="text-2xl font-semibold mb-2">Welcome back</h2>
+      <p class="text-sm text-slate-500 mb-4">Login to your mini social account</p>
+      <form id="login-form" class="space-y-3">
+        <input id="email" type="email" placeholder="Email" class="w-full p-3 rounded-xl bg-white/30 outline-none"/>
+        <input id="password" type="password" placeholder="Password" class="w-full p-3 rounded-xl bg-white/30 outline-none"/>
+        <button class="w-full py-3 rounded-2xl bg-sky-600 text-white font-medium">Login</button>
+      </form>
+      <p class="text-sm text-slate-600 mt-4">Don't have an account? <a href="signup.html" class="text-sky-600 font-medium">Sign up</a></p>
+    </div>
   </div>
-
+<script>
+document.getElementById('login-form').addEventListener('submit', (e)=>{
+  e.preventDefault();
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value.trim();
+  if(!email || !password){ alert('Enter email and password'); return; }
+  const users = JSON.parse(localStorage.getItem('users')||'[]');
+  const found = users.find(u=>u.email===email && u.password===password);
+  if(found){
+    localStorage.setItem('loggedInUser', JSON.stringify(found));
+    location.href = 'index.html';
+  } else {
+    alert('Invalid credentials or no account found.');
+  }
+});
+</script>
 </body>
 </html>
